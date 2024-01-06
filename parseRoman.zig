@@ -21,8 +21,8 @@ pub fn parseRoman(input: *[:0]const u8) i32 {
 
     for (input.*) |byte| {
         curr = romanDigitValue(byte);
-        const doNegate: i2 = @intFromBool(prev < curr);
-        const sign: i32 = 1 - doNegate * 2;
+        const doNegate: i8 = @intFromBool(prev < curr);
+        const sign = 1 - doNegate * 2;
         result += prev * sign;
         prev = curr;
     }
